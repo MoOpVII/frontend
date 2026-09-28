@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthServiceService {
+export class AuthService {
   isLoggedIn: boolean = false;
   public redirectUrl: string = "";
 
