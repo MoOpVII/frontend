@@ -1,3 +1,13 @@
-<h3><a href="/posts/{{ post?.id }}">{{ post?.title }}</a></h3>
-<p>by {{ post?.firstName }} {{ post?.lastName }}; on {{ post?.dateCreated }}</p>
-<p>{{ post?.body }}</p>
+<article class="detail-page" *ngIf="post as transmission">
+	<a class="back-link" routerLink="/">← BACK TO FEED</a>
+	<p class="eyebrow">TRANSMISSION <span>//</span> {{ transmission.id }}</p>
+	<h1>{{ transmission.title }}<span class="heading-period">.</span></h1>
+	<div class="detail-byline">
+		<span class="author-mark" aria-hidden="true">{{ transmission.firstName.charAt(0) }}{{ transmission.lastName.charAt(0) }}</span>
+		<span>{{ transmission.firstName }} {{ transmission.lastName }}</span>
+		<span class="byline-divider">/</span>
+		<time>{{ transmission.dateCreated }}</time>
+	</div>
+	<div class="detail-body">{{ transmission.body }}</div>
+	<div class="detail-end"><span></span> END OF TRANSMISSION</div>
+</article>

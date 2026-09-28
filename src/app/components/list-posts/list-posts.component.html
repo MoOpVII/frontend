@@ -1,4 +1,30 @@
-<div *ngFor="let post of posts">
-  <h3><a href="/posts/{{ post.id }}">{{ post.title }}</a></h3>
-  <p>by {{ post.firstName }} {{ post.lastName }} ; on {{ post.dateCreated }}</p>
-</div>
+<section class="feed-page" aria-labelledby="feed-title">
+  <div class="page-heading">
+    <div>
+      <p class="eyebrow">INCOMING SIGNALS <span>//</span> PUBLIC</p>
+      <h1 id="feed-title">The feed<span class="heading-period">.</span></h1>
+    </div>
+    <div class="feed-count"><span>{{ posts?.length || 0 }}</span> TRANSMISSIONS</div>
+  </div>
+
+  <div class="feed-list" *ngIf="posts?.length; else emptyFeed">
+    <article class="post-row" *ngFor="let post of posts; let index = index">
+      <span class="post-index">{{ (index + 1).toString().padStart(2, '0') }}</span>
+      <a class="post-link" [routerLink]="['/posts', post.id]">
+        <span class="post-meta">{{ post.firstName }} {{ post.lastName }} <span>/</span> {{ post.dateCreated }}</span>
+        <h2>{{ post.title }}</h2>
+      </a>
+      <a class="post-arrow" [routerLink]="['/posts', post.id]" [attr.aria-label]="'Read ' + post.title">↗</a>
+    </article>
+  </div>
+
+  <ng-template #emptyFeed>
+    <div class="empty-feed">
+      <span class="empty-mark">!</span>
+      <div>
+        <p class="eyebrow">CHANNEL STATUS <span>//</span> QUIET</p>
+        <p>No transmissions have been received.</p>
+      </div>
+    </div>
+  </ng-template>
+</section>

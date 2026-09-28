@@ -1,1 +1,31 @@
-<router-outlet></router-outlet>
+<div class="app-shell">
+	<header class="topbar">
+		<a class="wordmark" routerLink="/" aria-label="Naive-wire home">
+			<span class="wordmark-mark" aria-hidden="true">N</span>
+			<span>NAIVE-WIRE<span class="wordmark-slash">//</span></span>
+		</a>
+		<div class="topbar-center"><span class="live-dot"></span> NETWORK ONLINE</div>
+		<div class="topbar-meta">PUBLIC CHANNEL <span>·</span> 01</div>
+	</header>
+
+	<div class="workspace">
+		<aside class="side-rail" aria-label="Current section">
+			<span class="rail-number">01</span>
+			<span class="rail-rule"></span>
+			<span class="rail-label">TRANSMISSIONS</span>
+			<span class="rail-bottom">EST. 2088</span>
+		</aside>
+
+		<main class="main-content">
+			<div class="channel-line">
+				<span class="channel-marker"></span>
+				OPEN NETWORK <span class="channel-divider">/</span> COMMUNITY FEED
+			</div>
+			<router-outlet></router-outlet>
+			<footer class="system-footer">
+				<span>NW / PUBLIC ACCESS</span>
+				<span>END-TO-END SIGNAL <i></i></span>
+			</footer>
+		</main>
+	</div>
+</div>
